@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class AppInitializer {
@@ -45,6 +47,24 @@ public class AppInitializer {
         company5.setCompanyNation("한국");
         company5.setCreatedAt(new Date());
         company5.setUpdatedAt(new Date());
+
+        List<Company> companies = new ArrayList<>();
+        companies.add(new Company("기아", "한국"));
+        companies.add(new Company("볼보", "스웨덴"));
+        companies.add(new Company("르노", "프랑스"));
+        companies.add(new Company("테슬라", "미국"));
+        companies.add(new Company("뷰익", "미국"));
+        companies.add(new Company("케딜락", "미국"));
+        companies.add(new Company("쉐보레", "미국"));
+        companies.add(new Company("GMC", "미국"));
+        companies.add(new Company("허머", "미국"));
+        companies.add(new Company("폰디악", "미국"));
+        companies.add(new Company("포드", "미국"));
+        companies.add(new Company("링컨", "미국"));
+        companies.add(new Company("크라이슬러", "미국"));
+        companies.add(new Company("지프", "미국"));
+
+        companyService.saveAll(companies);
 
         companyService.save(company1);
         companyService.save(company2);
