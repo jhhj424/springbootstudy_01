@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Transactional
@@ -28,5 +29,9 @@ public class CompanyService {
 
     public Company save(Company company) {
         return companyRepository.save(company);
+    }
+
+    public void saveAll(List<Company> companies) {
+        companyRepository.saveAll(companies);
     }
 }
